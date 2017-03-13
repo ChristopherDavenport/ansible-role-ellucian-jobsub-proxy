@@ -1,0 +1,9 @@
+---
+
+- name: Create Proxy Wallet Folder
+  file:
+    dest: "{{ ellucian_jobsub_proxy_folder }}"
+    mode: 0770
+    owner: "{{ ellucian_jobsub_proxy_user }}"
+    group: "{{ ellucian_jobsub_proxy_group }}"
+    state: directory
