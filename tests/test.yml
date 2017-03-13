@@ -1,9 +1,24 @@
 ---
 - hosts: localhost
+  vars:
+    banner_user: banner
+    banner_group: banner_group
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes
       changed_when: False
       when: ansible_os_family == 'Debian'
+    - name: Create the banner group
+      become: yes
+      group:
+        state: present
+        name: "{{ banner_group }}"
+    - name: Add banner user
+      become: yes
+      user:
+        append: yes
+        state: present
+        name: "{{ banner_user }}"
+        group: "{{ banner_group }}"
   roles:
     - role_under_test
