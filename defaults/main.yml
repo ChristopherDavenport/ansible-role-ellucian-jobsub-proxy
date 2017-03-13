@@ -1,5 +1,5 @@
 ---
 
-ellucian_jobsub_proxy_user: "{{ banner_user | Default('banner') }}"
-ellucian_jobsub_proxy_group: "{{ banner_group | Default('banner_group') }}"
+ellucian_jobsub_proxy_user: "{{ banner_user | default('banner') }}"
+ellucian_jobsub_proxy_group: "{{ banner_group | default('banner_group') }}"
 ellucian_jobsub_proxy_folder: /u02/ellucian/proxy_wallet
